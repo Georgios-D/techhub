@@ -31,6 +31,11 @@ app.get("/questions", async (req, res) => {
     res.send(questions);
 });
 
+app.get("/questions/:id", async (req, res) => {
+    const question = await Question.findById(req.params.id);
+    res.send(question);
+});
+
 app.listen(3000, () => {
     mongoose.connect(
         "mongodb+srv://GeorgiosD:georgiosd@cluster0.ywdaimb.mongodb.net/techhub?retryWrites=true&w=majority"
