@@ -1,19 +1,20 @@
-import React from "react";
 import { Link } from "react-router-dom";
-type Props = {};
+import { Question } from "../Question";
 
-export default function QuestionCard({}: Props) {
+type Props = {
+    question: Question;
+};
+
+export default function QuestionCard({ question }: Props) {
     return (
         <div className="p-4 border-b border-b-gray-300">
-            <Link to="/question/123" className="text-lg text-sky-600">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro,
-                dolores?
+            <Link
+                to={"/question/" + question._id}
+                className="text-lg text-sky-600"
+            >
+                {question.title}
             </Link>
-            <p className="text-sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                enim deserunt nihil error laborum ipsum aut culpa reiciendis
-                assumenda corporis!
-            </p>
+            <p className="text-sm">{question.description}</p>
         </div>
     );
 }

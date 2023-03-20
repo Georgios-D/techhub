@@ -1,6 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
+
 const app = express();
+import cors from "cors";
+
+app.use(cors({ origin: "*" }));
 
 app.get("/", (req, res) => {
     res.send("hej");
@@ -28,8 +32,7 @@ app.get("/questions", async (req, res) => {
 });
 
 app.listen(3000, () => {
-    mongoose.connect;
-    {
-        ("mongodb+srv://GeorgiosD:georgiosd@cluster0.ywdaimb.mongodb.net/?retryWrites=true&w=majority");
-    }
+    mongoose.connect(
+        "mongodb+srv://GeorgiosD:georgiosd@cluster0.ywdaimb.mongodb.net/techhub?retryWrites=true&w=majority"
+    );
 });
